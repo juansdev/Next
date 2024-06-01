@@ -1,41 +1,12 @@
-import {IPokemon} from "@/pokemon";
-import {Metadata} from "next";
-import Image from 'next/image';
-import {notFound} from "next/navigation";
+import Image from "next/image";
+import {getPokemon} from "@/pokemon";
 
-interface IProps {
-  params: {
-    id: string
-  }
+interface IPokemonProps {
+  identifyPokemon: string;
 }
 
-const getPokemon = async (id: string): Promise<IPokemon> => {
-  try {
-    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json());
-    console.log("It was loaded: ", pokemon);
-    return pokemon;
-  } catch (e) {
-    notFound();
-  }
-}
-
-export async function generateMetadata({params}: IProps): Promise<Metadata> {
-  try {
-    const {id, name} = await getPokemon(params.id);
-    return {
-      title: `#${id} - ${name}`,
-      description: `Page of the pokemon ${name}`
-    }
-  } catch (error) {
-    return {
-      title: `Title`,
-      description: `Description`
-    }
-  }
-}
-
-export default async function PokemonPage({params}: IProps) {
-  const pokemon = await getPokemon(params.id);
+export const Pokemon = async ({identifyPokemon}: IPokemonProps) => {
+  const pokemon = await getPokemon(identifyPokemon);
   return (
     <div className="flex mt-5 flex-col items-center text-slate-800">
       <div

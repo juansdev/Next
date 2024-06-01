@@ -1,19 +1,19 @@
-import {IPokemonResponse, ISimplePokemon, PokemonGrid} from "@/pokemon";
+import {getListPokemon, PokemonGrid} from "@/pokemon";
+import {Metadata} from "next";
 
-const getPokemon = async(limit = 20, offset= 0): Promise<ISimplePokemon[]> => {
-  const data: IPokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`).then(res => res.json());
-  return data.results.map(result=>({
-    id: result.url.split("/").at(-2)!,
-    name: result.name
-  }));
+export const metadata: Metadata = {
+  title: "List of Pokemon",
+  description: "A List of Pokemon"
 }
 
-export default async function PokemonPage(){
-  const listPokemon = await getPokemon(151);
-  return (<div className={"flex flex-col"}>
-    <span className={"text-5xl my-2"}>
-      List Pokemon <small>Static</small>
-    </span>
-    <PokemonGrid listPokemon={listPokemon}></PokemonGrid>
-  </div>);
+export default async function PokemonPage() {
+  const listPokemon = await getListPokemon(151);
+  return (
+    <div className={"flex flex-col"}>
+      <span className={"text-5xl my-2"}>
+        List Pokemon <small>Static</small>
+      </span>
+      <PokemonGrid listPokemon={listPokemon}></PokemonGrid>
+    </div>
+  );
 }
