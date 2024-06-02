@@ -1,7 +1,7 @@
 import React from "react";
 import Image from 'next/image'
-import {IoBrowsersOutline, IoCalculator, IoFootball, IoLogoReact} from 'react-icons/io5';
-import {ISidebarMenuItemProps, SidebarMenuItem} from "@/components/SidebarMenuItem";
+import {IoBrowsersOutline, IoCalculator, IoFootball, IoHeartOutline, IoLogoReact} from 'react-icons/io5';
+import {ISidebarMenuItemProps, SidebarMenuItem} from "@/components/shared/sidebar/SidebarMenuItem";
 
 const menuItems: ISidebarMenuItemProps[] = [{
   path: "/dashboard/main",
@@ -18,6 +18,11 @@ const menuItems: ISidebarMenuItemProps[] = [{
   icon: <IoFootball size={40}/>,
   title: "Pokemon",
   subTitle: "Generation Static"
+}, {
+  path: "/dashboard/favorites",
+  icon: <IoHeartOutline size={40}/>,
+  title: "Favorites",
+  subTitle: "Global State"
 }];
 export function Sidebar() {
   return (

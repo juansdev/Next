@@ -1,10 +1,17 @@
 import {Metadata} from "next";
+import {WidgetsGrid} from "@/components";
 
 export const metadata: Metadata = {
-  title: "Main Page",
-  description: "Main Page"
+  title: "Admin Dashboard",
+  description: "Admin Dashboard"
 }
 
 export default function MainPage() {
-  return (<>Main Page</>);
+  return (
+    <div className={"text-black p-2"}>
+      <h1 className={"mt-2 text-3xl"}>Dashboard</h1>
+      <span className={"text-xl"}>General Information</span>
+      <WidgetsGrid></WidgetsGrid>
+    </div>
+  );
 }
