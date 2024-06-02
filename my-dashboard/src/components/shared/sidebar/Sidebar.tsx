@@ -19,7 +19,7 @@ const menuItems: ISidebarMenuItemProps[] = [{
   title: "Pokemon",
   subTitle: "Generation Static"
 }, {
-  path: "/dashboard/favorites",
+  path: "/dashboard/pokemonFavorites",
   icon: <IoHeartOutline size={40}/>,
   title: "Favorites",
   subTitle: "Global State"
