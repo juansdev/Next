@@ -1,7 +1,7 @@
 import React from "react";
 import Image from 'next/image'
 import {IoBrowsersOutline, IoCalculator, IoFootball, IoHeartOutline, IoLogoReact} from 'react-icons/io5';
-import {ISidebarMenuItemProps, SidebarMenuItem} from "@/components/shared/sidebar/SidebarMenuItem";
+import {ISidebarMenuItemProps, SidebarMenuItem} from "@/components/shared";
 
 const menuItems: ISidebarMenuItemProps[] = [{
   path: "/dashboard/main",
